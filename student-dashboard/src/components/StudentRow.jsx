@@ -8,22 +8,27 @@ function StudentRow({ student, index, updateScore }) {
     updateScore(index, newScore);
   };
 
-  const status = student.score >= 40 ? "Pass" : "Fail";
+  const isPass = student.score >= 40;
 
   return (
     <tr>
       <td>{student.name}</td>
       <td>{student.score}</td>
-      <td className={status === "Pass" ? "pass" : "fail"}>
-        {status}
+
+      <td>
+        {isPass ? (
+          <span className="pass-badge">● PASS</span>
+        ) : (
+          <span className="fail">FAIL</span>
+        )}
       </td>
+
       <td>
         <input
-          type="number"
           value={newScore}
           onChange={(e) => setNewScore(e.target.value)}
         />
-        <button onClick={handleSave}>Save</button>
+        <button onClick={handleSave}>SAVE</button>
       </td>
     </tr>
   );

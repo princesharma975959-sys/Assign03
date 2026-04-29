@@ -1,58 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+
 body {
-  font-family: Arial;
-  background: #0f172a;
-  color: white;
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: #020617;
+  color: #94a3b8;
 }
 
-.container {
-  padding: 20px;
+/* GRID */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(0,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: -1;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
+.app {
+  width: 80%;
+  margin: auto;
+}
+
+/* HEADER */
+.sub {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #00ffe1;
+}
+
+.header h1 {
+  font-size: 72px;
+  margin: 10px 0 20px;
+}
+
+.dim {
+  color: #94a3b8;
+}
+
+.glow {
+  background: linear-gradient(90deg, #00ffe1, #00c3ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 0 10px #00ffe1,
+    0 0 30px #00ffe1,
+    0 0 60px #00ffe1;
+}
+
+/* FORM */
+.form-box {
+  border: 1px solid rgba(0,255,255,0.15);
+  background: rgba(0, 10, 20, 0.4);
+}
+
+.form-top {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #00ffe1;
+  border-bottom: 1px solid rgba(0,255,255,0.1);
 }
 
 .form {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 120px;
 }
 
-input {
-  padding: 8px;
-}
-
-button {
-  padding: 8px 12px;
-  cursor: pointer;
-  background: #22c55e;
+.form input {
+  padding: 14px;
+  background: transparent;
   border: none;
+  border-right: 1px solid rgba(0,255,255,0.1);
+  color: #94a3b8;
+}
+
+.form button {
+  background: transparent;
+  color: #00ffe1;
+  border: none;
+}
+
+/* STATS */
+.stats {
+  display: flex;
+  margin-top: 30px;
+}
+
+.card {
+  flex: 1;
+  padding: 30px;
+  border: 1px solid rgba(0,255,255,0.1);
+  background: rgba(0, 10, 20, 0.3);
+}
+
+.card span {
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+.card h2 {
+  color: #00ffe1;
+  font-size: 32px;
+}
+
+/* TABLE */
+.table-box {
+  margin-top: 30px;
+  border: 1px solid rgba(0,255,255,0.1);
+  background: rgba(0, 10, 20, 0.3);
+}
+
+.table-top {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #00ffe1;
+  border-bottom: 1px solid rgba(0,255,255,0.1);
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  background: #111827;
 }
 
-th, td {
-  padding: 10px;
-  border: 1px solid #333;
-  text-align: center;
+th {
+  text-align: left;
+  padding: 14px;
+  font-size: 11px;
+  color: #64748b;
+  border-bottom: 1px solid rgba(0,255,255,0.1);
 }
 
-.pass {
-  color: #22c55e;
+td {
+  padding: 22px 15px;
+  border-bottom: 1px solid rgba(0,255,255,0.05);
+}
+
+/* ROW GLOW */
+tbody tr:first-child td {
+  background: rgba(0,255,136,0.05);
+}
+
+tbody tr:first-child td:first-child {
+  border-left: 3px solid #00ff88;
+  box-shadow: 0 0 20px #00ff88;
+}
+
+/* STATUS */
+.pass-badge {
+  color: #00ff88;
+  border: 1px solid rgba(0,255,136,0.3);
+  padding: 4px 10px;
+  box-shadow: 0 0 10px rgba(0,255,136,0.3);
 }
 
 .fail {
   color: red;
 }
 
-.stats {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
-  font-weight: bold;
+/* INPUT */
+td input {
+  width: 60px;
+  padding: 8px;
+  background: transparent;
+  border: 1px solid rgba(0,255,255,0.1);
+  color: white;
+}
+
+/* BUTTON */
+td button {
+  margin-left: 10px;
+  padding: 8px 14px;
+  border: 1px solid rgba(0,255,255,0.1);
+  background: transparent;
+  color: #94a3b8;
+}
+
+td button:hover {
+  color: #00ffe1;
+  border-color: #00ffe1;
 }

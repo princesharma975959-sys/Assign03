@@ -6,9 +6,7 @@ function AddStudentForm({ addStudent }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (!name || score === "") return;
-    if (score < 0 || score > 100) return;
 
     addStudent(name, score);
     setName("");
@@ -16,21 +14,28 @@ function AddStudentForm({ addStudent }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form">
-      <input
-        type="text"
-        placeholder="Student Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="number"
-        placeholder="Score"
-        value={score}
-        onChange={(e) => setScore(e.target.value)}
-      />
-      <button type="submit">Add</button>
-    </form>
+    <div className="form-box">
+      <div className="form-top">
+        <span>● REGISTER STUDENT</span>
+        <span>NEW ENTRY</span>
+      </div>
+
+      <form className="form" onSubmit={handleSubmit}>
+        <input
+          placeholder="Student name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+
+        <input
+          placeholder="Score (0-100)"
+          value={score}
+          onChange={(e) => setScore(e.target.value)}
+        />
+
+        <button type="submit">+ ADD</button>
+      </form>
+    </div>
   );
 }
 

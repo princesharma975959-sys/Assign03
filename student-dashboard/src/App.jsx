@@ -1,11 +1,11 @@
 import { useState } from "react";
 import Header from "./components/Header";
-import StudentTable from "./components/StudentTable";
 import AddStudentForm from "./components/AddStudentForm";
+import StudentTable from "./components/StudentTable";
 
 function App() {
   const [students, setStudents] = useState([
-    { name: "Arman", score: 78 },
+    { name: "Aman", score: 78 },
     { name: "Riya", score: 45 },
     { name: "Rahul", score: 30 },
     { name: "Simran", score: 90 },
@@ -15,9 +15,9 @@ function App() {
     setStudents([...students, { name, score: Number(score) }]);
   };
 
-  const updateScore = (index, newScore) => {
+  const updateScore = (index, score) => {
     const updated = [...students];
-    updated[index].score = Number(newScore);
+    updated[index].score = Number(score);
     setStudents(updated);
   };
 
@@ -27,15 +27,23 @@ function App() {
     students.reduce((sum, s) => sum + s.score, 0) / total || 0;
 
   return (
-    <div className="container">
+    <div className="app">
       <Header />
-
       <AddStudentForm addStudent={addStudent} />
 
       <div className="stats">
-        <div>Total: {total}</div>
-        <div>Passed: {passed}</div>
-        <div>Avg: {avg.toFixed(1)}</div>
+        <div className="card">
+          <span>TOTAL</span>
+          <h2>{total}</h2>
+        </div>
+        <div className="card">
+          <span>PASSED</span>
+          <h2>{passed}</h2>
+        </div>
+        <div className="card">
+          <span>AVG SCORE</span>
+          <h2>{avg.toFixed(0)}</h2>
+        </div>
       </div>
 
       <StudentTable students={students} updateScore={updateScore} />
